@@ -9264,8 +9264,6 @@ var _chromaJs2 = _interopRequireDefault(_chromaJs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
 // take a hex and give us a nice text color to put over it
 
 
@@ -9317,12 +9315,13 @@ var Styles = {
     width: 14,
     height: 46
   },
+
   servicesHead: {
     marginTop: 10,
     marginBottom: 3,
     marginLeft: -15,
     width: 320,
-    height: 36,
+    // height: 36,
     flexDirection: 'row',
     flexWrap: 'no-wrap'
   },
@@ -9357,7 +9356,8 @@ var Styles = {
     fontSize: 12
   },
   organic: {
-    width: 320
+    width: 320,
+    marginTop: 20
   },
   organic__title: {
     color: "#04b",
@@ -9414,8 +9414,7 @@ var Styles = {
 };
 
 var TouchSerp = function TouchSerp(_ref) {
-  _objectDestructuringEmpty(_ref);
-
+  var searchDocs = _ref.searchDocs;
   return _react2['default'].createElement(
     _reactSketchapp.Artboard,
     { style: Styles.artboard },
@@ -9471,91 +9470,126 @@ var TouchSerp = function TouchSerp(_ref) {
         '\u041C\u0410\u0420\u041A\u0415\u0422'
       )
     ),
+    _react2['default'].createElement(SerpList, { searchDocs: searchDocs })
+  );
+};
+
+var SerpList = function SerpList(_ref2) {
+  var searchDocs = _ref2.searchDocs;
+  return _react2['default'].createElement(
+    _reactSketchapp.View,
+    null,
+    Object.keys(searchDocs).map(function (id) {
+      return _react2['default'].createElement(SerpItem, { documentData: searchDocs[id], key: id });
+    })
+  );
+};
+
+var SerpItem = function SerpItem(_ref3) {
+  var documentData = _ref3.documentData;
+  return _react2['default'].createElement(
+    _reactSketchapp.View,
+    { style: Styles.organic },
+    _react2['default'].createElement(
+      _reactSketchapp.Text,
+      { style: Styles.organic__title },
+      documentData['title']
+    ),
     _react2['default'].createElement(
       _reactSketchapp.View,
-      { style: Styles.organic },
+      { style: Styles.organic__subtitle },
       _react2['default'].createElement(
         _reactSketchapp.Text,
-        { style: Styles.organic__title },
-        '\u041F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430!!! \u2013 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E / hameleon.ru'
-      ),
-      _react2['default'].createElement(
-        _reactSketchapp.View,
-        { style: Styles.organic__subtitle },
-        _react2['default'].createElement(
-          _reactSketchapp.Text,
-          { style: Styles.organc__path },
-          'hameleon.ru'
-        ),
-        _react2['default'].createElement(
-          _reactSketchapp.Text,
-          { style: Styles.organic__label },
-          '\u0420\u0435\u043A\u043B\u0430\u043C\u0430'
-        )
+        { style: Styles.organc__path },
+        documentData['url']
       ),
       _react2['default'].createElement(
         _reactSketchapp.Text,
-        { style: Styles.text__container },
-        '\u041F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430 \u0425\u0410\u041C\u0415\u041B\u0415\u041E\u041D \u2013 \u043A\u0443\u043F\u0438 \u0443 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044F, \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E, \u0430\u043A\u0446\u0438\u0438 \u0438 \u0441\u043A\u0438\u0434\u043A\u0438'
-      ),
-      _react2['default'].createElement(
-        _reactSketchapp.View,
-        { style: Styles.sitelinks },
-        _react2['default'].createElement(
-          _reactSketchapp.Text,
-          { style: Styles.sitelinks__link },
-          '\u041E\u043A\u043D\u0430 \u041F\u0412\u0425 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E'
-        ),
-        _react2['default'].createElement(
-          _reactSketchapp.Text,
-          { style: Styles.sitelinks__link__before },
-          '\xB7'
-        ),
-        _react2['default'].createElement(
-          _reactSketchapp.Text,
-          { style: Styles.sitelinks__link },
-          '\u0421\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u043D\u044B\u0435 \u043F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430'
-        ),
-        _react2['default'].createElement(
-          _reactSketchapp.Text,
-          { style: Styles.sitelinks__link__before },
-          '\xB7'
-        ),
-        _react2['default'].createElement(
-          _reactSketchapp.Text,
-          { style: Styles.sitelinks__link },
-          '\u041E\u043A\u043D\u0430 \u041F\u0412\u0425 \u043A\u043B\u0430\u0441\u0441\u0430 \u043B\u044E\u043A\u0441'
-        )
+        { style: Styles.organic__label },
+        documentData['label_text']
       )
+    ),
+    _react2['default'].createElement(
+      _reactSketchapp.Text,
+      { style: Styles.text__container },
+      documentData['snippet_text']
+    ),
+    _react2['default'].createElement(Sitelinks, { sitelinks: documentData['sitelinks'] })
+  );
+};
+
+//TODO: itrate over sitelinks objects
+var Sitelinks = function Sitelinks(_ref4) {
+  var sitelinks = _ref4.sitelinks;
+  return _react2['default'].createElement(
+    _reactSketchapp.View,
+    { style: Styles.sitelinks },
+    _react2['default'].createElement(
+      _reactSketchapp.Text,
+      { style: Styles.sitelinks__link },
+      sitelinks[0]
+    ),
+    _react2['default'].createElement(
+      _reactSketchapp.Text,
+      { style: Styles.sitelinks__link__before },
+      '\xB7'
+    ),
+    _react2['default'].createElement(
+      _reactSketchapp.Text,
+      { style: Styles.sitelinks__link },
+      sitelinks[1]
+    ),
+    _react2['default'].createElement(
+      _reactSketchapp.Text,
+      { style: Styles.sitelinks__link__before },
+      '\xB7'
+    ),
+    _react2['default'].createElement(
+      _reactSketchapp.Text,
+      { style: Styles.sitelinks__link },
+      sitelinks[2]
     )
   );
 };
 
-// const SerpItems = ({ searchDocs }) => (
-//     {Object.keys(searchDocs).map(searchDocId => <TouchSerp name={searchDocId} data={searchDocs[searchDocId]} key={searchDocId} />)}
-// );
-
-// Document.propTypes = {
-//   colors: PropTypes.objectOf(PropTypes.string).isRequired,
-// };
-
 exports['default'] = function (context) {
   var searchDocs = {
     0: {
-      title: 'Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки'
+      title: "ОКНА 21 ВЕКА - Скидка 45% - Производитель!!",
+      url: "okna-21-veka.ru",
+      label_text: "Реклама",
+      snippet_text: "Цены на <b>окна</b> обрушились! От 7500 руб. - Прямо с завода!",
+      sitelinks: {
+        0: "Окна ПВХ недорого",
+        1: "Стандартные пластиковые окна",
+        2: "Скидки"
+      }
+    },
+    1: {
+      title: "Пластиковые окна ХАМЕЛЕОН от производителя",
+      url: "hameleon.ru",
+      label_text: "Реклама",
+      snippet_text: "Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки",
+      sitelinks: {
+        0: "Окна ПВХ недорого",
+        1: "Стандартные пластиковые окна",
+        2: "Скидки"
+      }
+    },
+    2: {
+      title: "Пластиковые окна ХАМЕЛЕОН от производителя",
+      url: "hameleon.ru",
+      label_text: "Реклама",
+      snippet_text: "Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки",
+      sitelinks: {
+        0: "Окна ПВХ недорого",
+        1: "Стандартные пластиковые окна",
+        2: "Скидки"
+      }
     }
-    // const colorList = {
-    //   Haus: '#F3F4F4',
-    //   Night: '#333',
-    //   Sur: '#96DBE4',
-    //   'Sur Dark': '#24828F',
-    //   Peach: '#EFADA0',
-    //   'Peach Dark': '#E37059',
-    //   Pear: '#93DAAB',
-    //   'Pear Dark': '#2E854B',
-    // };
 
-  };(0, _reactSketchapp.render)(_react2['default'].createElement(TouchSerp, { searchDocs: searchDocs }), context.document.currentPage());
+  };
+  (0, _reactSketchapp.render)(_react2['default'].createElement(TouchSerp, { searchDocs: searchDocs }), context.document.currentPage());
 };
 
 module.exports = exports['default'];

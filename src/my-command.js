@@ -54,12 +54,13 @@ const Styles = {
     width: 14,
     height: 46,
   },
+
   servicesHead: {
     marginTop: 10,
     marginBottom: 3,
     marginLeft: -15,
     width: 320,
-    height: 36,
+    // height: 36,
     flexDirection: 'row',
     flexWrap: 'no-wrap',
   },
@@ -95,6 +96,7 @@ const Styles = {
   },
   organic: {
       width: 320,
+      marginTop: 20,
   },
   organic__title: {
     color: "#04b",
@@ -150,7 +152,7 @@ const Styles = {
 
 };
 
-const TouchSerp = ({ }) => (
+const TouchSerp = ({ searchDocs }) => (
   <Artboard style={Styles.artboard} >
     <View style={Styles.search2__input}>
       <View style={Styles.input}>
@@ -184,62 +186,85 @@ const TouchSerp = ({ }) => (
       </Text>
     </View>
 
-
-    <View style={Styles.organic} >
-      <Text style={Styles.organic__title} >
-        Пластиковые окна!!! – недорого / hameleon.ru
-      </Text>
-      <View style={Styles.organic__subtitle} >
-        <Text style={Styles.organc__path} >
-          hameleon.ru
-        </Text>
-        <Text style={Styles.organic__label} >
-          Реклама
-        </Text>
-      </View>
-      <Text style={Styles.text__container} >
-        Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки
-      </Text>
-      <View style={Styles.sitelinks} >
-        <Text style={Styles.sitelinks__link}>Окна ПВХ недорого</Text>
-        <Text style={Styles.sitelinks__link__before}>&#183;</Text>
-        <Text style={Styles.sitelinks__link}>Стандартные пластиковые окна</Text>
-        <Text style={Styles.sitelinks__link__before}>&#183;</Text>
-        <Text style={Styles.sitelinks__link}>Окна ПВХ класса люкс</Text>
-      </View>
-
-    </View>
+    <SerpList searchDocs={searchDocs} />
 
    </Artboard>
 
 );
 
+const SerpList = ( { searchDocs } ) => (
+  <View>
+    {Object.keys(searchDocs).map(id => <SerpItem documentData={searchDocs[id]} key={id} />)}
+  </View>
+);
 
+const SerpItem = ( { documentData } ) => (
+  <View style={Styles.organic} >
+    <Text style={Styles.organic__title} >
+      {documentData['title']}
+    </Text>
+    <View style={Styles.organic__subtitle} >
+      <Text style={Styles.organc__path} >
+        {documentData['url']}
+      </Text>
+      <Text style={Styles.organic__label} >
+        {documentData['label_text']}
+      </Text>
+    </View>
+    <Text style={Styles.text__container} >
+      {documentData['snippet_text']}
+    </Text>
+    <Sitelinks sitelinks={documentData['sitelinks']} />
+  </View>
+);
 
-// const SerpItems = ({ searchDocs }) => (
-//     {Object.keys(searchDocs).map(searchDocId => <TouchSerp name={searchDocId} data={searchDocs[searchDocId]} key={searchDocId} />)}
-// );
-
-// Document.propTypes = {
-//   colors: PropTypes.objectOf(PropTypes.string).isRequired,
-// };
+//TODO: itrate over sitelinks objects
+const Sitelinks = ( {sitelinks} ) => (
+  <View style={Styles.sitelinks} >
+    <Text style={Styles.sitelinks__link}>{sitelinks[0]}</Text>
+    <Text style={Styles.sitelinks__link__before}>&#183;</Text>
+    <Text style={Styles.sitelinks__link}>{sitelinks[1]}</Text>
+    <Text style={Styles.sitelinks__link__before}>&#183;</Text>
+    <Text style={Styles.sitelinks__link}>{sitelinks[2]}</Text>
+  </View>
+);
 
 export default (context) => {
   const searchDocs = {
     0: {
-      title: 'Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки'
-    }
-  }
-  // const colorList = {
-  //   Haus: '#F3F4F4',
-  //   Night: '#333',
-  //   Sur: '#96DBE4',
-  //   'Sur Dark': '#24828F',
-  //   Peach: '#EFADA0',
-  //   'Peach Dark': '#E37059',
-  //   Pear: '#93DAAB',
-  //   'Pear Dark': '#2E854B',
-  // };
+      title: "ОКНА 21 ВЕКА - Скидка 45% - Производитель!!",
+      url: "okna-21-veka.ru",
+      label_text: "Реклама",
+      snippet_text: "Цены на <b>окна</b> обрушились! От 7500 руб. - Прямо с завода!",
+      sitelinks: {
+        0: "Окна ПВХ недорого",
+        1: "Стандартные пластиковые окна",
+        2: "Скидки",
+      }
+    },
+    1: {
+      title: "Пластиковые окна ХАМЕЛЕОН от производителя",
+      url: "hameleon.ru",
+      label_text: "Реклама",
+      snippet_text: "Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки",
+      sitelinks: {
+        0: "Окна ПВХ недорого",
+        1: "Стандартные пластиковые окна",
+        2: "Скидки",
+      }
+    },
+    2: {
+      title: "Пластиковые окна ХАМЕЛЕОН от производителя",
+      url: "hameleon.ru",
+      label_text: "Реклама",
+      snippet_text: "Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки",
+      sitelinks: {
+        0: "Окна ПВХ недорого",
+        1: "Стандартные пластиковые окна",
+        2: "Скидки",
+      }
+    },
 
+  }
   render(<TouchSerp searchDocs={searchDocs} />, context.document.currentPage());
 }
