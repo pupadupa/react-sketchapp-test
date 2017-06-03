@@ -134,15 +134,28 @@ const Styles = {
     width: 290,
     lineHeight: 19
   },
+  sitelinks: {
+    height: 18,
+    marginTop: 10,
+    flexDirection: 'row',
+    flexWrap: 'no-wrap',
+  },
+  sitelinks__link: {
+    color: "#04b",
+  },
+  sitelinks__link__before: {
+    marginRight: 7.5,
+    marginLeft: 7.5,
+  }
 
 };
 
-const Document = ({ colors }) => (
+const TouchSerp = ({ }) => (
   <Artboard style={Styles.artboard} >
     <View style={Styles.search2__input}>
       <View style={Styles.input}>
         <Text name='input__control' style={Styles.input__control}>
-          окна1123
+          окна
           </Text>
       </View>
       <View style={Styles.search2__button}>
@@ -170,6 +183,8 @@ const Document = ({ colors }) => (
         МАРКЕТ
       </Text>
     </View>
+
+
     <View style={Styles.organic} >
       <Text style={Styles.organic__title} >
         Пластиковые окна!!! – недорого / hameleon.ru
@@ -184,8 +199,14 @@ const Document = ({ colors }) => (
       </View>
       <Text style={Styles.text__container} >
         Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки
-        Окна ПВХ недорогоСтандартные пластиковые окнаОкна ПВХ класса люкс
       </Text>
+      <View style={Styles.sitelinks} >
+        <Text style={Styles.sitelinks__link}>Окна ПВХ недорого</Text>
+        <Text style={Styles.sitelinks__link__before}>&#183;</Text>
+        <Text style={Styles.sitelinks__link}>Стандартные пластиковые окна</Text>
+        <Text style={Styles.sitelinks__link__before}>&#183;</Text>
+        <Text style={Styles.sitelinks__link}>Окна ПВХ класса люкс</Text>
+      </View>
 
     </View>
 
@@ -193,21 +214,32 @@ const Document = ({ colors }) => (
 
 );
 
-Document.propTypes = {
-  colors: PropTypes.objectOf(PropTypes.string).isRequired,
-};
+
+
+// const SerpItems = ({ searchDocs }) => (
+//     {Object.keys(searchDocs).map(searchDocId => <TouchSerp name={searchDocId} data={searchDocs[searchDocId]} key={searchDocId} />)}
+// );
+
+// Document.propTypes = {
+//   colors: PropTypes.objectOf(PropTypes.string).isRequired,
+// };
 
 export default (context) => {
-  const colorList = {
-    Haus: '#F3F4F4',
-    Night: '#333',
-    Sur: '#96DBE4',
-    'Sur Dark': '#24828F',
-    Peach: '#EFADA0',
-    'Peach Dark': '#E37059',
-    Pear: '#93DAAB',
-    'Pear Dark': '#2E854B',
-  };
+  const searchDocs = {
+    0: {
+      title: 'Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки'
+    }
+  }
+  // const colorList = {
+  //   Haus: '#F3F4F4',
+  //   Night: '#333',
+  //   Sur: '#96DBE4',
+  //   'Sur Dark': '#24828F',
+  //   Peach: '#EFADA0',
+  //   'Peach Dark': '#E37059',
+  //   Pear: '#93DAAB',
+  //   'Pear Dark': '#2E854B',
+  // };
 
-  render(<Document colors={colorList} />, context.document.currentPage());
+  render(<TouchSerp searchDocs={searchDocs} />, context.document.currentPage());
 }

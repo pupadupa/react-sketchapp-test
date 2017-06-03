@@ -9264,6 +9264,8 @@ var _chromaJs2 = _interopRequireDefault(_chromaJs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
 // take a hex and give us a nice text color to put over it
 
 
@@ -9394,12 +9396,26 @@ var Styles = {
   text__container: {
     width: 290,
     lineHeight: 19
+  },
+  sitelinks: {
+    height: 18,
+    marginTop: 10,
+    flexDirection: 'row',
+    flexWrap: 'no-wrap'
+  },
+  sitelinks__link: {
+    color: "#04b"
+  },
+  sitelinks__link__before: {
+    marginRight: 7.5,
+    marginLeft: 7.5
   }
 
 };
 
-var Document = function Document(_ref) {
-  var colors = _ref.colors;
+var TouchSerp = function TouchSerp(_ref) {
+  _objectDestructuringEmpty(_ref);
+
   return _react2['default'].createElement(
     _reactSketchapp.Artboard,
     { style: Styles.artboard },
@@ -9412,7 +9428,7 @@ var Document = function Document(_ref) {
         _react2['default'].createElement(
           _reactSketchapp.Text,
           { name: 'input__control', style: Styles.input__control },
-          '\u043E\u043A\u043D\u04301123'
+          '\u043E\u043A\u043D\u0430'
         )
       ),
       _react2['default'].createElement(
@@ -9480,29 +9496,66 @@ var Document = function Document(_ref) {
       _react2['default'].createElement(
         _reactSketchapp.Text,
         { style: Styles.text__container },
-        '\u041F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430 \u0425\u0410\u041C\u0415\u041B\u0415\u041E\u041D \u2013 \u043A\u0443\u043F\u0438 \u0443 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044F, \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E, \u0430\u043A\u0446\u0438\u0438 \u0438 \u0441\u043A\u0438\u0434\u043A\u0438 \u041E\u043A\u043D\u0430 \u041F\u0412\u0425 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E\u0421\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u043D\u044B\u0435 \u043F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430\u041E\u043A\u043D\u0430 \u041F\u0412\u0425 \u043A\u043B\u0430\u0441\u0441\u0430 \u043B\u044E\u043A\u0441'
+        '\u041F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430 \u0425\u0410\u041C\u0415\u041B\u0415\u041E\u041D \u2013 \u043A\u0443\u043F\u0438 \u0443 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044F, \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E, \u0430\u043A\u0446\u0438\u0438 \u0438 \u0441\u043A\u0438\u0434\u043A\u0438'
+      ),
+      _react2['default'].createElement(
+        _reactSketchapp.View,
+        { style: Styles.sitelinks },
+        _react2['default'].createElement(
+          _reactSketchapp.Text,
+          { style: Styles.sitelinks__link },
+          '\u041E\u043A\u043D\u0430 \u041F\u0412\u0425 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E'
+        ),
+        _react2['default'].createElement(
+          _reactSketchapp.Text,
+          { style: Styles.sitelinks__link__before },
+          '\xB7'
+        ),
+        _react2['default'].createElement(
+          _reactSketchapp.Text,
+          { style: Styles.sitelinks__link },
+          '\u0421\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u043D\u044B\u0435 \u043F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430'
+        ),
+        _react2['default'].createElement(
+          _reactSketchapp.Text,
+          { style: Styles.sitelinks__link__before },
+          '\xB7'
+        ),
+        _react2['default'].createElement(
+          _reactSketchapp.Text,
+          { style: Styles.sitelinks__link },
+          '\u041E\u043A\u043D\u0430 \u041F\u0412\u0425 \u043A\u043B\u0430\u0441\u0441\u0430 \u043B\u044E\u043A\u0441'
+        )
       )
     )
   );
 };
 
-Document.propTypes = {
-  colors: _propTypes2['default'].objectOf(_propTypes2['default'].string).isRequired
-};
+// const SerpItems = ({ searchDocs }) => (
+//     {Object.keys(searchDocs).map(searchDocId => <TouchSerp name={searchDocId} data={searchDocs[searchDocId]} key={searchDocId} />)}
+// );
+
+// Document.propTypes = {
+//   colors: PropTypes.objectOf(PropTypes.string).isRequired,
+// };
 
 exports['default'] = function (context) {
-  var colorList = {
-    Haus: '#F3F4F4',
-    Night: '#333',
-    Sur: '#96DBE4',
-    'Sur Dark': '#24828F',
-    Peach: '#EFADA0',
-    'Peach Dark': '#E37059',
-    Pear: '#93DAAB',
-    'Pear Dark': '#2E854B'
-  };
+  var searchDocs = {
+    0: {
+      title: 'Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки'
+    }
+    // const colorList = {
+    //   Haus: '#F3F4F4',
+    //   Night: '#333',
+    //   Sur: '#96DBE4',
+    //   'Sur Dark': '#24828F',
+    //   Peach: '#EFADA0',
+    //   'Peach Dark': '#E37059',
+    //   Pear: '#93DAAB',
+    //   'Pear Dark': '#2E854B',
+    // };
 
-  (0, _reactSketchapp.render)(_react2['default'].createElement(Document, { colors: colorList }), context.document.currentPage());
+  };(0, _reactSketchapp.render)(_react2['default'].createElement(TouchSerp, { searchDocs: searchDocs }), context.document.currentPage());
 };
 
 module.exports = exports['default'];
