@@ -11,7 +11,7 @@ const Styles = {
     width:320,
     height:568,
     paddingLeft: 15,
-    paddingRight: 115 ,
+    paddingRight: 15 ,
   },
   search2__input: {
     marginTop: 21,
@@ -107,7 +107,32 @@ const Styles = {
       width: 290,
       flexDirection: 'row',
       flexWrap: 'wrap',
-      paddingBottom: 6,
+      paddingBottom: 5,
+  },
+  organc__path: {
+    color: "#070",
+    fontSize: 14,
+    fontWeight: 700,
+  },
+  organic__label: {
+    backgroundColor: "#ffeba0",
+    marginTop: -1,
+    marginRight: 0,
+    marginBottom: -1,
+    marginLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    paddingLeft: 10,
+    fontSize: 13,
+    lineHeight: 19,
+    fontFamily: "Verdana",
+    display: "inline-block",
+    verticalAlign: "baseline",
+    borderRadius: 3,
+  },
+  text__container: {
+    width: 290,
+    lineHeight: 19
   },
 
 };
@@ -117,7 +142,7 @@ const Document = ({ colors }) => (
     <View style={Styles.search2__input}>
       <View style={Styles.input}>
         <Text name='input__control' style={Styles.input__control}>
-          окна
+          окна1123
           </Text>
       </View>
       <View style={Styles.search2__button}>
@@ -146,41 +171,18 @@ const Document = ({ colors }) => (
       </Text>
     </View>
     <View style={Styles.organic} >
-      <Text style={Styles.organic__title}>
-        Пластиковые окна – недорого / hameleon.ru
+      <Text style={Styles.organic__title} >
+        Пластиковые окна!!! – недорого / hameleon.ru
       </Text>
       <View style={Styles.organic__subtitle} >
-        <Text style={{
-          color: "#070",
-          fontSize: 14,
-          fontWeight: 700,
-        }}
-        >
+        <Text style={Styles.organc__path} >
           hameleon.ru
         </Text>
-        <Text style={{
-          backgroundColor: "#ffeba0",
-          marginTop: -1,
-          marginRight: 0,
-          marginBottom: -1,
-          marginLeft: 10,
-          paddingRight: 10,
-          paddingBottom: 2,
-          paddingLeft: 10,
-          fontSize: 13,
-          lineHeight: 19,
-          fontFamily: "Verdana",
-          display: "inline-block",
-          verticalAlign: "baseline",
-          borderRadius: 3,
-        }}>
+        <Text style={Styles.organic__label} >
           Реклама
         </Text>
       </View>
-      <Text style={{
-        width: 290,
-        lineHeight: 17
-      }} >
+      <Text style={Styles.text__container} >
         Пластиковые окна ХАМЕЛЕОН – купи у производителя, недорого, акции и скидки
         Окна ПВХ недорогоСтандартные пластиковые окнаОкна ПВХ класса люкс
       </Text>

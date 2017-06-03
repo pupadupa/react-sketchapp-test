@@ -9368,7 +9368,32 @@ var Styles = {
     width: 290,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    paddingBottom: 6
+    paddingBottom: 5
+  },
+  organc__path: {
+    color: "#070",
+    fontSize: 14,
+    fontWeight: 700
+  },
+  organic__label: {
+    backgroundColor: "#ffeba0",
+    marginTop: -1,
+    marginRight: 0,
+    marginBottom: -1,
+    marginLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    paddingLeft: 10,
+    fontSize: 13,
+    lineHeight: 19,
+    fontFamily: "Verdana",
+    display: "inline-block",
+    verticalAlign: "baseline",
+    borderRadius: 3
+  },
+  text__container: {
+    width: 290,
+    lineHeight: 19
   }
 
 };
@@ -9387,7 +9412,7 @@ var Document = function Document(_ref) {
         _react2['default'].createElement(
           _reactSketchapp.Text,
           { name: 'input__control', style: Styles.input__control },
-          '\u043E\u043A\u043D\u0430'
+          '\u043E\u043A\u043D\u04301123'
         )
       ),
       _react2['default'].createElement(
@@ -9436,48 +9461,25 @@ var Document = function Document(_ref) {
       _react2['default'].createElement(
         _reactSketchapp.Text,
         { style: Styles.organic__title },
-        '\u041F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430 \u2013 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E / hameleon.ru'
+        '\u041F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430!!! \u2013 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E / hameleon.ru'
       ),
       _react2['default'].createElement(
         _reactSketchapp.View,
         { style: Styles.organic__subtitle },
         _react2['default'].createElement(
           _reactSketchapp.Text,
-          { style: {
-              color: "#070",
-              fontSize: 14,
-              fontWeight: 700
-            }
-          },
+          { style: Styles.organc__path },
           'hameleon.ru'
         ),
         _react2['default'].createElement(
           _reactSketchapp.Text,
-          { style: {
-              backgroundColor: "#ffeba0",
-              marginTop: -1,
-              marginRight: 0,
-              marginBottom: -1,
-              marginLeft: 10,
-              paddingRight: 10,
-              paddingBottom: 2,
-              paddingLeft: 10,
-              fontSize: 13,
-              lineHeight: 19,
-              fontFamily: "Verdana",
-              display: "inline-block",
-              verticalAlign: "baseline",
-              borderRadius: 3
-            } },
+          { style: Styles.organic__label },
           '\u0420\u0435\u043A\u043B\u0430\u043C\u0430'
         )
       ),
       _react2['default'].createElement(
         _reactSketchapp.Text,
-        { style: {
-            width: 290,
-            lineHeight: 17
-          } },
+        { style: Styles.text__container },
         '\u041F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430 \u0425\u0410\u041C\u0415\u041B\u0415\u041E\u041D \u2013 \u043A\u0443\u043F\u0438 \u0443 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044F, \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E, \u0430\u043A\u0446\u0438\u0438 \u0438 \u0441\u043A\u0438\u0434\u043A\u0438 \u041E\u043A\u043D\u0430 \u041F\u0412\u0425 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E\u0421\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u043D\u044B\u0435 \u043F\u043B\u0430\u0441\u0442\u0438\u043A\u043E\u0432\u044B\u0435 \u043E\u043A\u043D\u0430\u041E\u043A\u043D\u0430 \u041F\u0412\u0425 \u043A\u043B\u0430\u0441\u0441\u0430 \u043B\u044E\u043A\u0441'
       )
     )

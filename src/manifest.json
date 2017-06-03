@@ -3,7 +3,7 @@
 	"bundleVersion": 1,
 	"commands": [
 		{
-			"name": "react-sketchapp: Yandex touch",
+			"name": "yandex-touch-serp",
 			"identifier": "main",
 			"script": "./my-command.js"
 		}

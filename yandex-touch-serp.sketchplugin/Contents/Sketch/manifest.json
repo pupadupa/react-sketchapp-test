@@ -3,7 +3,7 @@
   "bundleVersion": 1,
   "commands": [
     {
-      "name": "react-sketchapp: Yandex touch",
+      "name": "yandex-touch-serp",
       "identifier": "main",
       "script": "my-command.js"
     }
@@ -16,7 +16,7 @@
   },
   "version": "1.0.0",
   "description": "",
-  "name": "yandex-touch",
+  "name": "yandex-touch-serp",
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://raw.githubusercontent.com//master/.appcast.xml"
 }
