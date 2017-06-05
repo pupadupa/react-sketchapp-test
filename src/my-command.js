@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { render, Artboard, Text, View, Image } from 'react-sketchapp';
 import chroma from 'chroma-js';
 
-// take a hex and give us a nice text color to put over it
-
-
 const Styles = {
   artboard: {
     width:320,
